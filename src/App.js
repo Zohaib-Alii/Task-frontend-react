@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Table from "./components/table";
+import PostDetailApi from "./components/postDetailApi";
+import PostCommentApi from "./components/postCommentApi";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import NavBar from "./components/navBar";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className='App'>
+        <NavBar />
+        <Routes>
+          <Route path='/' element={<Table />} />
+          <Route path='/postdetailapi' element={<PostDetailApi />} />
+          <Route path='/postcommentapi' element={<PostCommentApi />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
